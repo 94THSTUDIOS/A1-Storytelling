@@ -1,0 +1,12 @@
+header{
+	background-color: #f8f9fa;
+	padding: 15px;
+	font-family: Proxima Nova;
+  text-align: center;
+}
+
+.container-1 {
+padding-left: 15px;
+position: relative;
+left:0; 
+}	

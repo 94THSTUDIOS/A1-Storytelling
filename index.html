@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="style.css" rel="stylesheet">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.2/lib/p5.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>
+      <div id="header">
+        <img src="images/brain.png" alt="brain" style="width: 100px; height: 100px;">
+        "Visualizing the Impact of Mental Health: A Global and Local Perspective"
+    </h1>
+    <div class="container mt-5">
+      <p>Mental health profoundly influences every aspect of human life, from individual well-being to societal
+        productivity. The World Health Organization (WHO) emphasizes that mental health conditions are a leading cause
+        of
+        disability worldwide, while the Centre for Addiction and Mental Health (CAMH) underscores their widespread
+        impact
+        in Canada. Beyond individual challenges, untreated mental health issues contribute to significant economic
+        burdens, including lost productivity and increased healthcare costs. This data visualization project explores
+        the
+        complex impacts of mental health, aiming to highlight the importance of awareness, access to care, and effective
+        interventions.</p>
+
+      <div class="container-1 mt-2">
+        <h2>Who Is Affected?</h2>
+        <p>"Mental health challenges disproportionately affect young people aged 15-24."</p>
+      </div>
+
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Male', 'Female'],
+            datasets: [{
+              label: 'Used Health Services For A Mental Illness',
+              data: [15, 20, 25, 30, 35, 40],
+              backgroundColor: [
+                'blue', // Color for Male
+                'red' // Color for Female
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+
+
+  </header>
+</body>
