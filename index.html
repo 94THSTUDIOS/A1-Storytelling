@@ -9,9 +9,7 @@
   <link href="style.css" rel="stylesheet">
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -26,21 +24,27 @@
 <body>
   <header>
     <h1>
-      <div id="header">
-        <img src="images/brain.png" alt="brain" style="width: 100px; height: 100px;">
-        "Visualizing the Impact of Mental Health: A Global and Local Perspective"
+      "Visualizing the Impact of Mental Health: A Global and Local Perspective"
     </h1>
-    <div class="container mt-5">
-      <p>Mental health profoundly influences every aspect of human life, from individual well-being to societal
-        productivity. The World Health Organization (WHO) emphasizes that mental health conditions are a leading cause
-        of
-        disability worldwide, while the Centre for Addiction and Mental Health (CAMH) underscores their widespread
-        impact
-        in Canada. Beyond individual challenges, untreated mental health issues contribute to significant economic
-        burdens, including lost productivity and increased healthcare costs. This data visualization project explores
-        the
-        complex impacts of mental health, aiming to highlight the importance of awareness, access to care, and effective
-        interventions.</p>
+    <header>
+
+      <div class="Introduction">
+        <p>Mental health profoundly influences every aspect of human life, from individual well-being to societal
+          productivity. The World Health Organization (WHO) emphasizes that mental health conditions are a leading cause
+          of
+          disability worldwide, while the Centre for Addiction and Mental Health (CAMH) underscores their widespread
+          impact
+          in Canada. Beyond individual challenges, untreated mental health issues contribute to significant economic
+          burdens, including lost productivity and increased healthcare costs. This data visualization project explores
+          the
+          complex impacts of mental health, aiming to highlight the importance of awareness, access to care, and
+          effective
+          interventions.</p>
+      </div>
+
+      <img href="https://www.camh.ca/-/media/images/camh-logo.png" alt="CAMH Logo" class="center">
+
+
 
       <div class="container-1 mt-2">
         <h2>Who Is Affected?</h2>
@@ -51,35 +55,176 @@
         <canvas id="myChart"></canvas>
       </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
       <script>
         const ctx = document.getElementById('myChart');
 
+
         new Chart(ctx, {
           type: 'bar',
           data: {
-            labels: ['Male', 'Female'],
+            labels: ['0-14', '15-24', '25-34', '35-44', '45-54', '55+'],
             datasets: [{
               label: 'Used Health Services For A Mental Illness',
-              data: [15, 20, 25, 30, 35, 40],
+              data: [5, 25, 15, 10, 8, 6,],
               backgroundColor: [
-                'blue', // Color for Male
-                'red' // Color for Female
+                'black', // Color for 0-14
+                'lightblue',   // Color for 15-24 (value 25)
+                'black', // Color for 25-34
+                'black', // Color for 35-44
+                'black', // Color for 45-54
+                'black'  // Color for 55+
+
               ],
               borderWidth: 1
             }]
           },
           options: {
             scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Age Groups' // X-axis label
+                }
+              },
               y: {
-                beginAtZero: true
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'Number of People' // Y-axis label
+                }
+              }
+            },
+            plugins: {
+              title: {
+                display: true,
+                text: 'Used Health Services For A Mental Illness'
               }
             }
           }
         });
+
+
       </script>
-
-
-  </header>
+    </header>
 </body>
+
+
+<!-- New horizontal bar chart section -->
+<div class="container-1 mt-2">
+  <h2>"Relative Disease Burden of Mental Illness and Substance Use in Canada" </h2>
+  <p>The following visualization highlights the disproportionate burden of disease caused by mental illness and
+    substance use disorders in Canada. Using a normalized scale, the chart compares the relative impact of these
+    conditions to other major health concerns, specifically cancer and infectious diseases. The data reveals that mental
+    illness and substance use disorders place a significantly greater burden on the population than either of these
+    other illnesses, underscoring the critical need for increased awareness, prevention, and treatment resources.</p>
+  <canvas id="horizontalBarChart"></canvas>
+</div>
+
+
+<div class="container-1 mt-2">
+  <script>
+    const ctxHorizontalBar = document.getElementById('horizontalBarChart');
+
+    new Chart(ctxHorizontalBar, {
+      type: 'bar',
+      data: {
+        labels: ['Tobacco', 'Alcohol', 'Opiod Related', 'Cancer'],
+        datasets: [{
+          label: 'Deaths per year',
+          data: [46000, 10048, 14224, 31196, 326215, 60000],
+          backgroundColor: [
+            'lightpurple', 'black', '#F7F7F7', 'green', 'red', 'blue'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        indexAxis: 'y', // This makes the bar chart horizontal
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Deaths Per Year' // X-axis label for the horizontal bar chart
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Disease Category' // Y-axis label for the horizontal bar chart
+            }
+          }
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Impact of Mental Health Issues on Different Age Groups'
+          }
+        }
+      }
+    });
+  </script>
+
+  <p class="highlight">There were an estimated 14,700 opioid-related deaths in Canada between January 2016 and September
+    2019 <a href='https://www.camh.ca/en/driving-change/the-crisis-is-real/mental-health-statistics'
+      target="_blank">Source</a></p>
+  </p>
+
+  <!-- New pie chart section -->
+
+  <div class="container-2 mt-2">
+    <h2>"Global Mental Health Statistics"</h2>
+    <p>The following pie chart provides a global perspective on mental health, highlighting the prevalence of mental
+      health conditions and the impact of these disorders on the global population. The data reveals that mental health
+      conditions are a significant public health concern worldwide, affecting millions of individuals and contributing
+      to
+      substantial disability and economic burdens. By visualizing this data, we can better understand the scope of the
+      problem and the need for effective interventions and support systems.</p>
+    <div class="chart-container">
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    const ctxPieChart = document.getElementById('pieChart');
+
+    new Chart(ctxPieChart, {
+      type: 'pie',
+      data: {
+        labels: ['Alcohol', 'Tobacco', 'Opioids', 'Cannabis'],
+        datasets: [{
+          label: 'Billion per year',
+          data: [14.2, 12.4, 3.5, 2.8],
+          backgroundColor: [
+            'red', 'blue', 'yellow', 'green', 'purple'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Annual Economic Cost of Substance Use In Canada ($)'
+          }
+        }
+      }
+    });
+  </script>
+
+
+  <!-- Closing Sentence -->
+
+  <div class="closingsentence">
+    <h2>"Conclusion"</h2>
+    <p>The data presented underscores the significant and multifaceted impact of mental illness and substance use
+      disorders on individuals, families, and the Canadian economy. The high costs associated with these conditions, both
+      in terms of healthcare expenditures and lost productivity, highlight the urgent need for increased awareness,
+      prevention, and treatment initiatives. By raising public awareness about these issues, we can reduce stigma, foster
+      understanding, and encourage individuals to seek help. Early intervention and effective treatment are crucial not
+      only for improving individual well-being but also for strengthening the social and economic fabric of our society.
+    </p>
+  </div>
+
+  <footer>
+    <p>Created by: Team 5</p>
