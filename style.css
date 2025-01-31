@@ -1,22 +1,30 @@
 header {
   text-align: center;
+  background: #4A1962;
+  margin: 10px;
+  padding: 20px;
+  color: white;
 }
 
 .introduction {
   text-align: center;
   margin: 10px;
   padding: 60px;
+  background-color:#4A1962; 
+  color: white;
 }
 
 .container-1 {
-  background-color: white;
+  background-color:  #F7F7F7;
+  color: black;
   text-align: center;
   margin: 10px;
   padding: 60px;
 }
 
 .container-2 {
-  background-color: white;
+  background-color:  #F7F7F7;
+  color: black;
   text-align: center;
   margin: 10px;
   padding: 60px;
@@ -26,6 +34,7 @@ header {
   height: 800px; /* Set the desired height */
   width: 800px; /* Set the desired width */
   margin: 0 auto; /* Center the chart */
+  background-color:  #F7F7F7;
   text-align: center;
 }
 

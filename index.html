@@ -21,98 +21,107 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
+<style>
+  .custom-header {
+    text-align: center;
+    background-color: #F7F7F7; /* Set the desired background color */
+    margin: 10px;
+    padding: 20px;
+    color: black; /* Set the text color */
+  }
+</style>
+
 <body>
-  <div class="header">
-  <header>
-    <h1>
-      "Visualizing the Impact of Mental Health: A Global and Local Perspective"
-    </h1>
+  <div class="custom-header">
     <header>
-    </div>
+      <h1>
+        "Visualizing the Impact of Mental Health: A Global and Local Perspective"
+      </h1>
+    </header>
+  </div>
 
-      <div class="Introduction">
-        <p>Mental health profoundly influences every aspect of human life, from individual well-being to societal
-          productivity. The World Health Organization (WHO) emphasizes that mental health conditions are a leading cause
-          of
-          disability worldwide, while the Centre for Addiction and Mental Health (CAMH) underscores their widespread
-          impact
-          in Canada. Beyond individual challenges, untreated mental health issues contribute to significant economic
-          burdens, including lost productivity and increased healthcare costs. This data visualization project explores
-          the
-          complex impacts of mental health, aiming to highlight the importance of awareness, access to care, and
-          effective
-          interventions.</p>
-      </div>
+  <div class="Introduction">
+    <p>Mental health profoundly influences every aspect of human life, from individual well-being to societal
+      productivity. The World Health Organization (WHO) emphasizes that mental health conditions are a leading cause
+      of
+      disability worldwide, while the Centre for Addiction and Mental Health (CAMH) underscores their widespread
+      impact
+      in Canada. Beyond individual challenges, untreated mental health issues contribute to significant economic
+      burdens, including lost productivity and increased healthcare costs. This data visualization project explores
+      the
+      complex impacts of mental health, aiming to highlight the importance of awareness, access to care, and
+      effective
+      interventions.</p>
+  </div>
 
-      <div class="container-1 mt-2">
-        <h2>Who Is Affected?</h2>
-        <p>"Mental health challenges disproportionately affect young people aged 15-24."</p>
-      </div>
+  <div class="container-1 mt-2">
+    <h2>Who Is Affected?</h2>
+    <p>"Mental health challenges disproportionately affect young people aged 15-24."</p>
+  </div>
 
-      <div>
-        <canvas id="myChart"></canvas>
-      </div>
-
-
-      <script>
-        const ctx = document.getElementById('myChart');
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
 
 
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['0-14', '15-24', '25-34', '35-44', '45-54', '55+'],
-            datasets: [{
-              label: 'Used Health Services For A Mental Illness',
-              data: [5, 25, 15, 10, 8, 6,],
-              backgroundColor: [
-                'black', // Color for 0-14
-                'lightblue',   // Color for 15-24 (value 25)
-                'black', // Color for 25-34
-                'black', // Color for 35-44
-                'black', // Color for 45-54
-                'black'  // Color for 55+
+  <script>
+    const ctx = document.getElementById('myChart');
 
-              ],
-              borderWidth: 1
-            }]
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['0-14', '15-24', '25-34', '35-44', '45-54', '55+'],
+        datasets: [{
+          label: 'Used Health Services For A Mental Illness',
+          data: [5, 25, 15, 10, 8, 6,],
+          backgroundColor: [
+            'black', // Color for 0-14
+            'lightblue',   // Color for 15-24 (value 25)
+            'black', // Color for 25-34
+            'black', // Color for 35-44
+            'black', // Color for 45-54
+            'black'  // Color for 55+
+
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Age Groups' // X-axis label
+            }
           },
-          options: {
-            scales: {
-              x: {
-                title: {
-                  display: true,
-                  text: 'Age Groups' // X-axis label
-                }
-              },
-              y: {
-                beginAtZero: true,
-                title: {
-                  display: true,
-                  text: 'Number of People' // Y-axis label
-                }
-              }
-            },
-            plugins: {
-              title: {
-                display: true,
-                text: 'Used Health Services For A Mental Illness'
-              }
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Number of People' // Y-axis label
             }
           }
-        });
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Used Health Services For A Mental Illness'
+          }
+        }
+      }
+    });
 
 
-      </script>
-    </header>
+  </script>
 </body>
 
 
 <!-- New horizontal bar chart section -->
 <div class="container-1 mt-2">
-  <h2>"Relative Disease Burden of Mental Illness and Substance Use in Canada" </h2>
+  <h2>"Relative Disease Burden of Mental Illness and Substance Use in Ontario" </h2>
   <p>The following visualization highlights the disproportionate burden of disease caused by mental illness and
-    substance use disorders in Canada. Using a normalized scale, the chart compares the relative impact of these
+    substance use disorders in Ontario. Using a normalized scale, the chart compares the relative impact of these
     conditions to other major health concerns, specifically cancer and infectious diseases. The data reveals that mental
     illness and substance use disorders place a significantly greater burden on the population than either of these
     other illnesses, underscoring the critical need for increased awareness, prevention, and treatment resources.</p>
@@ -127,12 +136,12 @@
     new Chart(ctxHorizontalBar, {
       type: 'bar',
       data: {
-        labels: ['Tobacco', 'Alcohol', 'Opiod Related', 'Cancer'],
+        labels: ['Tobacco', 'Alcohol', 'Opioid Related'],
         datasets: [{
           label: 'Deaths per year',
-          data: [46000, 10048, 14224, 31196, 326215, 60000],
+          data: [47000, 15000, 14700],
           backgroundColor: [
-            'lightpurple', 'black', '#F7F7F7', 'green', 'red', 'blue'
+            'red', 'orange', 'yellow'
           ],
           borderWidth: 1
         }]
@@ -225,4 +234,4 @@
   </div>
 
   <footer>
-    <p>Created by: Team 5</p>
+    <p>Created by: Horasha A Smith</p>
